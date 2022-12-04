@@ -7,7 +7,7 @@ variable "profile" {
 variable "region" {
   description = "Region for AWS resources"
   type        = string
-  default     = "us-east-1"
+  default     = "us-west-1"
 }
 
 variable "ec2_ssh_key_name" {

@@ -4,6 +4,43 @@ variable "ec2_should_be_created" {
   default     = true
 }
 
+variable "ec2_instance_count" {
+  description = "Number of EC2 instances"
+  type        = number
+  default     = 2
+}
+
+# EBS - BEGIN
+variable "ec2_ebs_vol_size" {
+  description = "EBS Volume Size"
+  type        = number
+  default     = 10
+}
+
+variable "ec2_ebs_availability_zone" {
+  description = "The Availability Zone of EBS Volume"
+  type        = string
+  default     = "us-west-1b"
+}
+variable "ec2_ebs_vol_name" {
+  description = "The Name of the EC2 EBS Volume"
+  type        = string
+  default     = "Free Tier EC2 EBS Vol"
+}
+variable "ec2_device_names" {
+  description = "The Name of the EC2 device"
+  #  type        = array
+  default = [
+    "/dev/sdf",
+    "/dev/sdg",
+    "/dev/sdh",
+    "/dev/sdi",
+    "/dev/sdj"
+  ]
+}
+
+# EBS - END
+
 variable "ec2_name" {
   description = "The Name of the EC2"
   type        = string
@@ -25,7 +62,7 @@ variable "ec2_security_group_description" {
 variable "ec2_ami" {
   description = "The Amazon Machine Image"
   type        = string
-  default     = "ami-04b9e92b5572fa0d1" # Ubuntu 18.04 LTS (64-bit x86)  Free Tier eligible
+  default     = "ami-03f6d497fceb40069" //"ami-04b9e92b5572fa0d1" # Ubuntu 18.04 LTS (64-bit x86)  Free Tier eligible
 }
 
 variable "ec2_instance_type" {
